@@ -2,19 +2,23 @@
 <html lang="pl">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Tutaj tytul</title>
+		<title>jQuery Form Validation</title>
 		<meta name="keywords" content="film, kino, costam" />
 		<meta http-equiv="X-UA-Compatibile" content="IE=edge, chrome=1" />
 		<link rel="stylesheet" href="style.css" type="text/css"/>
 	</head>
 	<body>
+	<div id="content">
 	<form>
-		<label>Imie <input type="text"/></label></br>
-		<label>Nazwisko <input type="text"/></label></br>
-		<label>Email <input type="text"/></label></br>
-		<input type="submit" value="Wyślij"/>
+		<label>Imie <input id="name" class="personal" type="text"/></label></br>
+		<label>Nazwisko <input id="surname" class="personal" type="text"/></label></br>
+		<label>Email <input id="email" type="email"/></label></br>
+		<input id="submit" type="button" value="Wyślij"/>
 	</form>
-	
+	</div>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="jqplug.js"></script>
+		<script src="setup.js"></script>			
 	</body>
 
 		
