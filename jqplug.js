@@ -9,7 +9,7 @@
                	 		}, params);
         }else if(params.pattern ==='undefined'){
         	var settings = $.extend({
-            	pattern : "^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłóńśźż]*$"
+    d        	pattern : "^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłóńśźż]*$"
             }, params);
         }else if(params.minLen==='undefined'){
          	var settings = $.extend({
@@ -20,6 +20,10 @@
         minLen = params.minLen;
                 
         return this.each(function() {
+        		$(this).blur(function(){
+					$(this).css('background-color', 'white');
+					$(":button").attr('disabled', false);
+				})
               if(!pattern.test($(this).val()) || $(this).val().length <= minLen) {
 					$(this).addClass('err');
 					console.log("blad");
@@ -32,9 +36,33 @@
               }
             });
         };
-}		
 		
-)(jQuery);
+		
+	$.fn.checkEmail = function() {
+		var pattern = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$");
+		this.each(function() {
+				$(this).blur(function(){
+					$(this).css('background-color', 'white');
+					$(":button").attr('disabled', false);
+				})
+			if(!pattern.test(this.value)) {
+				$(this).addClass('err');
+				$(":button").attr('disabled', true);
+				console.log("blad");
+			} else {
+				if($(this).hasClass('err')){
+					$(this).removeClass('err');
+					$(":button").attr('disabled', false);
+					console.log("Sukces!");
+				}
+			}
+		}
+	);
+		return this;
+	};
+		
+		
+})(jQuery);
 
 
 

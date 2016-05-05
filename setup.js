@@ -5,30 +5,10 @@ $(document).ready(function (){
 	});
 
 	function validateForm() {
-		$(":text").checkNames({minLen : 3});
-		//$(":email").checkEmail();
+		$("#name").validate({minLen : 4}).css('background-color','green');
+		$("#surname").validate({pattern: /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłóńśźż]*$/});
+		$("#email").checkEmail();
 	}
 		
 
 });
-		
-
-        $.fn.validate = function(options){
-        	var settings = $.extend({
-                        pattern : "tutaj regex" //tutaj rozszrzam options
-                }, options);
-                
-            var pattern = new RegExp(settings.pattern);
-                
-            return this.each(function() {
-                
-                
-                
-                if (pattern.test($(this).val())){
-                	
-                }else{
-                	
-                }
-                // tutaj zwaliduj addValidation($(this),validationF);
-            });
-        };
